@@ -8,7 +8,7 @@ export default function AllGuilds({selectGuild}) {
 
   useEffect(() => {
     const getGuilds = async () => {
-      const response = await uwuRequest('/user/guilds', {
+      const response = await uwuRequest('/guilds', {
         method: 'GET',
       }).catch(() => null);
 

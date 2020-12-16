@@ -1,5 +1,4 @@
 .guilds-container {
-  overflow: auto;
   display: block flex;
   justify-content: center;
   width: 100%;
@@ -12,51 +11,60 @@
 .guilds-container ul li {
   margin: 3% 0;
   border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }
 
 .guilds-container ul li button {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-
-}
-
-.guilds-container ul li button img {
-  background-color: #ffffff50;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  height: 60%;
-  width: 60%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
-.guilds-container ul li button p {
-    color: white;
+.guilds-container ul li button div {
+  border-radius: 50%;
+  background: #dedede;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guilds-container ul li button div img {
+  background-color: #ffffff50;
+
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.guilds-container ul li button div p {
+  color: black;
   position: absolute;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 30px;
   text-transform: capitalize;
   transition: 0.5s ease;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  width: 10%;
+  padding: 1%;
 }
 
-
-.guilds-container ul li div:hover  {
+.guilds-container ul li button:hover {
+    font-size: 1.6em;
     opacity: 1;
-    color: black;
-    font-weight: 900;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, 0%);
-    text-align: center;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-  }
+
+}
+
