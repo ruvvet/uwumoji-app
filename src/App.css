@@ -1,0 +1,56 @@
+.App {
+    height: 100vh;
+    width: 100vw;
+    background-color: #202225;
+    color: white;
+    display: grid;
+    grid-template-columns: 0.08fr 0.2fr 1fr 0.08fr;
+    grid-template-rows: 0.1fr 0.4fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      'layout-header layout-header layout-header search'
+      'layout-panel profile main navbar'
+      'layout-panel guilds main navbar';
+  }
+
+  .layout-header {
+    grid-area: layout-header;
+    color: white;
+    font-size: 20px;
+    background-color: #202225;
+    padding: 0.5% 0 0 8%;
+  }
+  .layout-panel {
+    grid-area: layout-panel;
+    background-color: #202225;
+    align-self: end;
+    text-align: center;
+  }
+
+  .search {
+    grid-area: search;
+  }
+  .profile {
+    grid-area: profile;
+
+    background-color: #2f3136;
+
+    border-top-left-radius: 10px;
+  }
+  .guilds {
+    grid-area: guilds;
+    background-color: #2f3136;
+    overflow: auto;
+  }
+  .main {
+    grid-area: main;
+    background-color: #36393f;
+    overflow: auto;
+    border-top-right-radius: 10px;
+    overflow: auto;
+  }
+
+  .navbar {
+    grid-area: navbar;
+    background-color: #202225;
+  }

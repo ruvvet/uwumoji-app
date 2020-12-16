@@ -1,14 +1,61 @@
-
-
-import Login from './components/Login'
+import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Login from './components/Login';
+import Callback from './components/Callback';
+import Main from './components/Main';
+import Profile from './components/profile/Profile';
+import Guilds from './components/guilds/AllGuilds';
+import Nav from './components/navbar/Nav';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-     <div> uwumoji app - wrapper goes here</div>
-     <Login />
+      <div className="layout-header"> uwumoji</div>
+      <div className="layout-panel">credits</div>
+      <div className="search"></div>
+
+      <div className="profile">
+        <Switch>
+          <Route path="/">
+            <Profile />
+          </Route>
+        </Switch>
+      </div>
+
+      <div className="guilds">
+        <Switch>
+          <Route path="/">
+            <Guilds />
+          </Route>
+        </Switch>
+      </div>
+
+      <div className="main">
+        <Switch>
+          <Route path="/callback">
+            <Callback />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </div>
+
+
+
+      <div className="navbar">
+        <Switch>
+          <Route path="/">
+            <Nav />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
