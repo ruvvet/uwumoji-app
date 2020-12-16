@@ -1,0 +1,62 @@
+.guilds-container {
+  overflow: auto;
+  display: block flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.guilds-container ul {
+  list-style-type: none;
+}
+.guilds-container ul li {
+  margin: 3% 0;
+  border-radius: 50%;
+}
+
+.guilds-container ul li button {
+    background-color: transparent;
+    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+.guilds-container ul li button img {
+  background-color: #ffffff50;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 60%;
+  width: 60%;
+}
+
+.guilds-container ul li button p {
+    color: white;
+  position: absolute;
+  text-align: center;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  transition: 0.5s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+
+.guilds-container ul li div:hover  {
+    opacity: 1;
+    color: black;
+    font-weight: 900;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }

@@ -8,14 +8,14 @@
 
 
   }
-  .profile-icon {
+  .profile-container img{
     height: 100%;
     width: 100%;
     border-top-left-radius: 10px;
     transition: transform .2s;
   }
 
-  .profile-name {
+  .profile-container div {
     text-align: center;
     position: absolute;
     bottom: 0%;
@@ -30,7 +30,7 @@
     background-color: #00000080;
   }
 
-  .profile-icon:hover {
+  .profile-container img:hover {
     color: #7289da;
     /* filter: grayscale(50%); */
     transform: scale(1.2);

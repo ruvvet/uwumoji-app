@@ -3,7 +3,7 @@ import uwuRequest from '../../utils';
 import Guild from './Guild';
 import './guilds.css';
 
-export default function AllGuilds() {
+export default function AllGuilds({selectGuild}) {
   const [guilds, setGuilds] = useState([]);
 
   useEffect(() => {
@@ -30,14 +30,14 @@ export default function AllGuilds() {
     }
 
     return guilds.map((guild, idx) => (
-      <li>
-        <Guild guild={guild} />
+      <li key={`guild-${idx}`}>
+        <Guild guild={guild} selectGuild = {selectGuild}/>
       </li>
     ));
   };
 
   return (
-    <div className="">
+    <div className="guilds-container">
       <ul>{renderGuilds()}</ul>
     </div>
   );

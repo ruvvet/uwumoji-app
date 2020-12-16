@@ -30,10 +30,9 @@ export default function Profile() {
     return (
       <>
         <img
-          className="profile-icon"
           src={`https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.png`}
         ></img>
-        <div className="profile-name">{profile.username}</div>
+        <div>{profile.username}</div>
       </>
     );
   };

@@ -10,6 +10,15 @@ import Nav from './components/navbar/Nav';
 import './App.css';
 
 function App() {
+
+  const [selectedGuild, setSelectedGuild] = useState({});
+
+
+  const selectGuild = (guild) =>{
+setSelectedGuild(guild)
+
+  }
+
   return (
     <div className="App">
       <div className="layout-header"> uwumoji</div>
@@ -27,7 +36,7 @@ function App() {
       <div className="guilds">
         <Switch>
           <Route path="/">
-            <Guilds />
+            <Guilds selectGuild={selectGuild}/>
           </Route>
         </Switch>
       </div>
