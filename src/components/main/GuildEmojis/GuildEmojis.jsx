@@ -1,9 +1,8 @@
 import React from 'react';
-import Emoji from '../Emoji';
-//import './main.css';
+import Emoji from '../../shared/Emoji';
+import './guildemojis.css';
 
 export default function GuildEmojis({ name, emojis }) {
-  console.log(emojis);
 
   const renderEmojis = () => {
     if (!emojis) {
@@ -11,14 +10,14 @@ export default function GuildEmojis({ name, emojis }) {
     }
 
     return emojis.map((emoji, idx) => (
-      <li className="btn"><Emoji name={emoji.name} url={emoji.url} /></li>
+      <li key={idx} className="btn"><Emoji name={emoji.name} url={emoji.url} /></li>
     ));
   };
 
   return (
-    <>
+    <div className="guild-emojis-container">
       <h1>{name}</h1>
       <ul id="hover" className="hover">{renderEmojis()}</ul>
-    </>
+    </div>
   );
 }

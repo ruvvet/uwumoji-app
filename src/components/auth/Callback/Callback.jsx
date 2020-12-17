@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import uwuRequest from '../utils';
+import uwuRequest from '../../../utils';
 
 // after being authorized
 // we retrieve the code from the req.query url
@@ -20,6 +20,7 @@ export default function Callback() {
       const login = async () => {
         const response = await uwuRequest('/exchange', {
           method: 'POST',
+          headers: { 'Content-Type': 'application/json', },
           body: JSON.stringify({ code }),
         });
 
@@ -28,11 +29,6 @@ export default function Callback() {
       };
 
       login();
-
-      // const hello = localStorage.getItem('UWU_TOKEN')
-      // console.log('in local storage', hello)
-      // get access back from express
-      //
 
       history.push('/');
     } else {

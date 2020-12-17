@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Login from './components/Login';
-import Callback from './components/Callback';
+import Login from './components/auth/Login';
+import Callback from './components/auth/Callback';
 import Main from './components/Main';
-import Profile from './components/profile/Profile';
-import Guilds from './components/guilds/AllGuilds';
-import Nav from './components/navbar/Nav';
+import Profile from './components/Profile';
+import Guilds from './components/guilds/Guilds';
+import Navbar from './components/Navbar';
 
 import './App.css';
 
 function App() {
-
   const [selectedGuild, setSelectedGuild] = useState({});
 
-
-  const selectGuild = (guild) =>{
-setSelectedGuild(guild)
-
-  }
+  const selectGuild = (guild) => {
+    setSelectedGuild(guild);
+  };
 
   return (
     <div className="App">
@@ -26,19 +23,11 @@ setSelectedGuild(guild)
       <div className="search"></div>
 
       <div className="profile">
-        <Switch>
-          <Route path="/">
-            <Profile />
-          </Route>
-        </Switch>
+        <Profile />
       </div>
 
       <div className="guilds">
-        <Switch>
-          <Route path="/">
-            <Guilds selectGuild={selectGuild}/>
-          </Route>
-        </Switch>
+        <Guilds selectGuild={selectGuild} />
       </div>
 
       <div className="main">
@@ -52,18 +41,13 @@ setSelectedGuild(guild)
 
           <Route path="/">
             <Main />
+
           </Route>
         </Switch>
       </div>
 
-
-
       <div className="navbar">
-        <Switch>
-          <Route path="/">
-            <Nav />
-          </Route>
-        </Switch>
+        <Navbar />
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ export default function Profile() {
     const getProfile = async () => {
       const response = await uwuRequest('/user/profile', {
         method: 'GET',
+        headers: { 'Content-Type': 'application/json', },
       }).catch(() => null);
 
       if (response) {

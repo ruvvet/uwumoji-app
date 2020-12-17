@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import uwuRequest from '../utils';
 import GuildEmojis from './main/GuildEmojis';
+import Upload from './edit/Upload';
+import Edit from './edit/Edit';
 import './main.css';
 
 export default function Main() {
@@ -10,9 +12,8 @@ export default function Main() {
     const getGuildEmojis = async () => {
       const response = await uwuRequest('/guilds/emojis', {
         method: 'GET',
+        headers: { 'Content-Type': 'application/json'},
       }).catch(() => null);
-
-      console.log(response);
 
       if (response) {
         setGuildEmojis(response);
@@ -22,27 +23,27 @@ export default function Main() {
     getGuildEmojis();
   }, []);
 
-const renderGuildEmojis = () => {
-  if (!guildEmojis) {
-    return null;
-  }
+  const renderGuildEmojis = () => {
+    if (!guildEmojis) {
+      return null;
+    }
 
-  const guildEmojisArr = [];
+    return Object.entries(guildEmojis).map(([name, emojis], idx) => (
+      <div key={idx}>
+        <GuildEmojis name={name} emojis={emojis} />
+      </div>
+    ));
+  };
 
-  for ( const [guildName,emojis] of Object.entries(guildEmojis)){
-    guildEmojisArr.push([guildName,emojis])
-  }
-
-console.log(guildEmojisArr)
-
-return guildEmojisArr.map((guildEmojis, idx) => (
-<div className = "guild-emoji-gallery"><GuildEmojis name = {guildEmojis[0]} emojis={guildEmojis[1]}/></div>
-))
-
-}
-
-
-return (  <div className="main-container">
-{renderGuildEmojis()}
-</div>)
+  return (
+    <div className="main-container">
+      <div className="guild-emoji-gallery">{renderGuildEmojis()}</div>
+      <div className="upload">
+        <Upload />
+      </div>
+      <div className="edit">
+        <Edit />
+      </div>
+    </div>
+  );
 }

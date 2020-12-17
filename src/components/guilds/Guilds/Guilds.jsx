@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import uwuRequest from '../../utils';
-import Guild from './Guild';
+import uwuRequest from '../../../utils';
+import Guild from '../Guild/Guild';
 import './guilds.css';
 
 export default function AllGuilds({selectGuild}) {
@@ -10,9 +10,8 @@ export default function AllGuilds({selectGuild}) {
     const getGuilds = async () => {
       const response = await uwuRequest('/guilds', {
         method: 'GET',
+        headers: { 'Content-Type': 'application/json', },
       }).catch(() => null);
-
-      console.log(response);
 
       if (response) {
         setGuilds(response);
@@ -30,7 +29,7 @@ export default function AllGuilds({selectGuild}) {
     }
 
     return guilds.map((guild, idx) => (
-      <li key={`guild-${idx}`}>
+      <li key={idx}>
         <Guild guild={guild} selectGuild = {selectGuild}/>
       </li>
     ));
