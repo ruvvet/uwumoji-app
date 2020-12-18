@@ -30,21 +30,23 @@ export default function Main() {
       return null;
     }
 
-    return Object.entries(guildEmojis).map(([name, emojis], idx) => (
-      <div key={idx}>
+    return Object.entries(guildEmojis).map(([name, emojis], i) => (
+      <div key={i}>
         <GuildEmojis name={name} emojis={emojis} />
       </div>
     ));
   };
 
   return (
-    <div className="main-container">
+    <div className="main">
+
       <Switch>
         <Route path="/browse">
       <BrowseMain />
         </Route>
 
         <Route path="/">
+        <div className = "main-container">
           <div className="guild-emoji-gallery">{renderGuildEmojis()}</div>
           <div className="upload">
             <Upload />
@@ -52,8 +54,10 @@ export default function Main() {
           <div className="edit">
             <Edit />
           </div>
+          </div>
         </Route>
       </Switch>
+
     </div>
   );
 }

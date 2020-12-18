@@ -28,8 +28,8 @@ export default function AllGuilds({selectGuild}) {
       return null;
     }
 
-    return guilds.map((guild, idx) => (
-      <li key={idx}>
+    return guilds.map((guild, i) => (
+      <li key={i}>
         <Guild guild={guild} selectGuild = {selectGuild}/>
       </li>
     ));

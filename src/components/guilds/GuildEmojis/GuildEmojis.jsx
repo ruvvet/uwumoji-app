@@ -9,8 +9,8 @@ export default function GuildEmojis({ name, emojis }) {
       return null;
     }
 
-    return emojis.map((emoji, idx) => (
-      <li key={idx} className="btn"><Emoji name={emoji.name} url={emoji.url} /></li>
+    return emojis.map((emoji, i) => (
+      <li key={i} className="btn"><Emoji name={emoji.name} url={emoji.url} /></li>
     ));
   };
 
