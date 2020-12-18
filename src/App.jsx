@@ -12,6 +12,8 @@ import './App.css';
 function App() {
   const [selectedGuild, setSelectedGuild] = useState({});
 
+  console.log(selectedGuild)
+
   const selectGuild = (guild) => {
     setSelectedGuild(guild);
   };
