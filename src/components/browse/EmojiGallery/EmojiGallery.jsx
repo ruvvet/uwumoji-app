@@ -27,9 +27,7 @@ export default function EmojiGallery({ galleryName, emojis }) {
   };
 
   return (
-    <div>
-      <div>{galleryName}</div>
-
+    <div className = "emoji-gallery-container">
       <ul id="hover" className="hover">
         {renderEmojis()}
       </ul>

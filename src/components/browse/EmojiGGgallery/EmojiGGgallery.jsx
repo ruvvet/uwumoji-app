@@ -52,7 +52,7 @@ export default function EmojiGGgallery() {
     if (!emojis) {
       return null;
     }
-
+    console.log(leftNav, rightNav);
     return (
       <div>
         <EmojiGallery galleryName={'Emoji.gg'} emojis={emojis} />
@@ -63,8 +63,13 @@ export default function EmojiGGgallery() {
   return (
     <div>
       <div>
-        {rightNav ? null : '<'}
-        {leftNav ? null : '>'}
+        {leftNav ? (
+          <img className="paginate" src="/img/left-arrow.png" />
+        ) : null}
+        <span>Emoji.gg</span>
+        {rightNav ? (
+          <img className="paginate" src="/img/right-arrow.png" />
+        ) : null}
       </div>
       {renderGallery()}
     </div>
