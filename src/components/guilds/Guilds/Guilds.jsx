@@ -3,14 +3,14 @@ import uwuRequest from '../../../utils';
 import Guild from '../Guild/Guild';
 import './guilds.css';
 
-export default function AllGuilds({selectGuild}) {
+export default function Guilds({ selectGuild }) {
   const [guilds, setGuilds] = useState([]);
 
   useEffect(() => {
     const getGuilds = async () => {
       const response = await uwuRequest('/guilds', {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json', },
+        headers: { 'Content-Type': 'application/json' },
       }).catch(() => null);
 
       if (response) {
@@ -24,13 +24,9 @@ export default function AllGuilds({selectGuild}) {
   // user pfp = avatars/user_id/user_avatar.png **
 
   const renderGuilds = () => {
-    if (!guilds) {
-      return null;
-    }
-
     return guilds.map((guild, i) => (
       <li key={i}>
-        <Guild guild={guild} selectGuild = {selectGuild}/>
+        <Guild guild={guild} selectGuild={selectGuild} />
       </li>
     ));
   };

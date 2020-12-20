@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Emoji from '../../shared/Emoji';
 import './emojigallery.css';
 
@@ -27,7 +27,7 @@ export default function EmojiGallery({ galleryName, emojis }) {
   };
 
   return (
-    <div className = "emoji-gallery-container">
+    <div className="emoji-gallery-container">
       <ul id="hover" className="hover">
         {renderEmojis()}
       </ul>

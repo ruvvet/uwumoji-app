@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useLocation, useHistory } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import uwuRequest from '../../../utils';
 import EmojiGallery from '../EmojiGallery';
 import './discordgallery.css';
 
 export default function Discordgallery() {
   const { page } = useParams();
-  const location = useLocation();
-  const history = useHistory();
 
   const [emojis, setEmojis] = useState();
 
@@ -31,8 +29,7 @@ export default function Discordgallery() {
         }
 
         if (page > lastPage) {
-          end =
-            Math.ceil(response.length / emojisPerPage) * emojisPerPage;
+          end = Math.ceil(response.length / emojisPerPage) * emojisPerPage;
           start = end - emojisPerPage;
         }
 
@@ -50,7 +47,7 @@ export default function Discordgallery() {
 
     return (
       <div>
-        <EmojiGallery galleryName={'Discord'} emojis={emojis} />
+        <EmojiGallery galleryName="Discord" emojis={emojis} />
       </div>
     );
   };

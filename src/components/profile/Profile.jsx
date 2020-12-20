@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import uwuRequest from '../../utils';
 import './profile.css';
 
 export default function Profile() {
-  const [profile, setProfile] = useState({});
+  //useState()= >> undefined >> no value was provided
+  // null is an explicit "no value"
+  // null is not the same as undefined
+
+  const [profile, setProfile] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const getProfile = async () => {
       const response = await uwuRequest('/user/profile', {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json', },
-      }).catch(() => null);
+        headers: { 'Content-Type': 'application/json' },
+      }).catch(() => {
+        setError(true);
+        return null;
+      });
+
+      setLoading(false);
 
       if (response) {
         setProfile(response);
@@ -22,10 +33,14 @@ export default function Profile() {
 
   // user pfp = avatars/user_id/user_avatar.png **
 
-  const renderProfile = () => {
-
-    if (!profile) {
+    const renderProfile = () => {
+    if (loading) {
       return null;
+    }
+    if (error) {
+      return <div> Error</div>;
+      //TODO:
+      //return a funny image
     }
 
     return (

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import uwuRequest from '../../utils';
-import GuildEmojis from '../guilds/GuildEmojis';
-import BrowseMain from '../browse/BrowseMain'
-import Upload from '../edit/Upload';
+import BrowseMain from '../browse/BrowseMain';
 import Edit from '../edit/Edit';
+import Upload from '../edit/Upload';
+import GuildEmojis from '../guilds/GuildEmojis';
 import './main.css';
 
-export default function Main() {
-  const [guildEmojis, setGuildEmojis] = useState();
+export default function Main({ guild }) {
+  const [guildEmojis, setGuildEmojis] = useState({});
 
   useEffect(() => {
     const getGuildEmojis = async () => {
@@ -26,9 +26,7 @@ export default function Main() {
   }, []);
 
   const renderGuildEmojis = () => {
-    if (!guildEmojis) {
-      return null;
-    }
+    //TODO: loading/error states
 
     return Object.entries(guildEmojis).map(([name, emojis], i) => (
       <div key={i}>
@@ -39,25 +37,23 @@ export default function Main() {
 
   return (
     <div className="main">
-
       <Switch>
         <Route path="/browse">
-      <BrowseMain />
+          <BrowseMain />
         </Route>
 
         <Route path="/">
-        <div className = "main-container">
-          <div className="guild-emoji-gallery">{renderGuildEmojis()}</div>
-          <div className="upload">
-            <Upload />
-          </div>
-          <div className="edit">
-            <Edit />
-          </div>
+          <div className="main-container">
+            <div className="guild-emoji-gallery">{renderGuildEmojis()}</div>
+            <div className="upload">
+              <Upload guild={guild} />
+            </div>
+            <div className="edit">
+              <Edit />
+            </div>
           </div>
         </Route>
       </Switch>
-
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import uwuRequest from '../../../utils';
 import './upload.css';
 
-export default function Upload() {
+export default function Upload({guild}) {
   const [img, setImg] = useState();
   const [name, setName] = useState();
   const [preview, setPreview] = useState();
@@ -11,10 +11,10 @@ export default function Upload() {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('img', img);
+    formData.append('guild', guild)
 
     await uwuRequest('/create', {
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/form-data' },
       body: formData,
     });
   };

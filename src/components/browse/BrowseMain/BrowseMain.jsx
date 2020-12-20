@@ -1,32 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import UwuDBgallery from '../UwuDBgallery';
-import EmojiGGgallery from '../EmojiGGgallery';
+import BrowseNavbar from '../BrowseNavbar';
 import Discordgallery from '../Discordgallery';
-import BrowseNavbar from '../BrowseNavbar'
+import EmojiGGgallery from '../EmojiGGgallery';
+import UwuDBgallery from '../UwuDBgallery';
 import './browsemain.css';
 
 export default function Upload() {
   return (
     <div className="browse-container">
-      <div> <BrowseNavbar/></div>
+      <div>
+        <BrowseNavbar />
+      </div>
       <Switch>
-        <Route path="/browse/uwumoji">
+        <Route path="/browse/uwumoji/:page">
           <UwuDBgallery />
         </Route>
         <Route path="/browse/emojigg/:page">
           <EmojiGGgallery />
         </Route>
-        <Route path="/browse/emojigg">
-          <EmojiGGgallery />
-        </Route>
         <Route path="/browse/discord/:page">
           <Discordgallery />
         </Route>
-        <Route path="/browse/discord">
-          <Discordgallery />
-        </Route>
-
         <Route path="/">
           <div>
             hello - idk what to put here yet, maybe a search bar/preview of
@@ -37,3 +32,4 @@ export default function Upload() {
     </div>
   );
 }
+
