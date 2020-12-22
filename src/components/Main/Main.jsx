@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import uwuRequest from '../../utils';
+import uwuRequest, { sleep } from '../../utils';
 import BrowseMain from '../browse/BrowseMain';
 import Edit from '../edit/Edit';
 import Upload from '../edit/Upload';
@@ -8,8 +8,9 @@ import GuildEmojis from '../guilds/GuildEmojis';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import './main.css';
 
-export default function Main({ guild }) {
+export default function Main() {
   const [guildEmojis, setGuildEmojis] = useState({});
+  const [selectedEmoji, setSelectedEmoji] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
@@ -33,17 +34,25 @@ export default function Main({ guild }) {
     getGuildEmojis();
   }, []);
 
+  const handleClickEmoji = (name, url, id) => {
+    setSelectedEmoji(id);
+  };
+
   const renderGuildEmojis = () => {
     if (loading) {
-      return null;
+      return <LoadingSpinner />;
     }
     if (error) {
-      return <LoadingSpinner />;
+      return null;
     }
 
     return Object.entries(guildEmojis).map(([name, emojis], i) => (
       <div key={i}>
-        <GuildEmojis name={name} emojis={emojis} />
+        <GuildEmojis
+          name={name}
+          emojis={emojis}
+          handleClickEmoji={handleClickEmoji}
+        />
       </div>
     ));
   };
@@ -58,11 +67,9 @@ export default function Main({ guild }) {
         <Route path="/">
           <div className="main-container">
             <div className="guild-emoji-gallery">{renderGuildEmojis()}</div>
-            <div className="upload">
-              <Upload guild={guild} />
-            </div>
-            <div className="edit">
-              <Edit />
+            <div className="action-panel">
+              <Upload />
+              <Edit emojiID={selectedEmoji} />
             </div>
           </div>
         </Route>

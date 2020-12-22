@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import uwuRequest from '../../../utils';
 import './upload.css';
 
-export default function Upload({guild}) {
+export default function Upload() {
   const [img, setImg] = useState();
   const [name, setName] = useState();
   const [preview, setPreview] = useState();
@@ -11,9 +11,9 @@ export default function Upload({guild}) {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('img', img);
-    formData.append('guild', guild)
+    formData.append('guild', localStorage.getItem('SELECTED_GUILD'))
 
-    await uwuRequest('/create', {
+    await uwuRequest('/emoji/new', {
       method: 'POST',
       body: formData,
     });
@@ -21,9 +21,10 @@ export default function Upload({guild}) {
 
   return (
     <div className="upload-container">
+      <img className = "emoji" src="img/outbox.png"/>
       {img && (
         <>
-          <img src={img ? URL.createObjectURL(img) : null} />
+          <img src={URL.createObjectURL(img)} />
           <div>{img.name}</div>
           <div>{name}</div>
         </>
@@ -56,3 +57,14 @@ export default function Upload({guild}) {
     </div>
   );
 }
+
+
+//TODO: ternary
+
+// {img && (
+//   <>
+//     <img src={img ? URL.createObjectURL(img) : "img/outbox.png"} />
+//     <div>{img.name}</div>
+//     <div>{name}</div>
+//   </>
+// )}

@@ -44,10 +44,12 @@
 }
 .main {
   grid-area: main;
+  width: 100%;
   background-color: #36393f;
   overflow: auto;
   border-top-right-radius: 10px;
-  overflow: auto;
+  overflow-x: hidden;
+
 }
 
 .navbar {

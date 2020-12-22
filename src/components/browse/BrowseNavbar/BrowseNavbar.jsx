@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom'
 import './browsenavbar.css'
 
 export default function BrowseNavbar() {
@@ -6,16 +7,16 @@ export default function BrowseNavbar() {
     <div class="emojinav shift-fx">
       <ul>
         <li>
-          <a href="/browse">⭐ UWUMOJI</a>
+          <Link to="/browse">⭐ UWUMOJI</Link>
         </li>
         <li>
-          <a href="/browse/emojigg/0">⚡ EMOJI.GG</a>
+          <Link to="/browse/emojigg/0">⚡ EMOJI.GG</Link>
         </li>
         <li>
-          <a href="/browse/discord">🔥 DISCORD </a>
+          <Link to="/browse/discord/0">🔥 DISCORD </Link>
         </li>
         <li>
-          <a href="#">🙃 TBD</a>
+          <Link to="/">🙃 TBD</Link>
         </li>
       </ul>
     </div>

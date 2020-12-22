@@ -4,7 +4,7 @@ import LoadingSpinner from '../../shared/LoadingSpinner';
 import Guild from '../Guild/Guild';
 import './guilds.css';
 
-export default function Guilds({ selectGuild }) {
+export default function Guilds() {
   const [guilds, setGuilds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
@@ -42,7 +42,7 @@ export default function Guilds({ selectGuild }) {
 
     return guilds.map((guild, i) => (
       <li key={i}>
-        <Guild guild={guild} selectGuild={selectGuild} />
+        <Guild guild={guild} />
       </li>
     ));
   };

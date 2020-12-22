@@ -24,7 +24,7 @@
   word-wrap: break-word;
   text-transform: uppercase;
   letter-spacing: 4px;
-  background-color: #00000080;
+  /* background-color: #00000080; */
 }
 
 .profile-container img:hover {

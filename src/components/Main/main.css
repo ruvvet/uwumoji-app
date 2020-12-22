@@ -1,28 +1,23 @@
-.main {
-width: 100%;
-}
 
 .main-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    'guild-emojis upload'
-    'guild-emojis edit';
+    'guild-emojis action-panel'
+
 }
 
 .guild-emoji-gallery {
   grid-area: guild-emojis;
 }
 
-.upload {
-  grid-area: upload;
+.action-panel {
+  grid-area: action-panel;
 
 }
-.edit {
-  grid-area: edit;
-}
+
 
 button > * {
   vertical-align: middle;

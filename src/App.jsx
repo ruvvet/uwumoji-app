@@ -10,18 +10,6 @@ import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
-  const [selectedGuild, setSelectedGuild] = useState(
-    localStorage.getItem('SELECTED_GUILD')
-  );
-
-  console.log('SElected Guild', selectedGuild);
-
-  const selectGuild = (guild) => {
-    localStorage.setItem('SELECTED_GUILD', guild);
-    setSelectedGuild(guild);
-  };
-
-
 
 
   return (
@@ -35,7 +23,7 @@ function App() {
       </div>
 
       <div className="guilds">
-        <Guilds selectGuild={selectGuild} />
+        <Guilds />
       </div>
 
       <div className="main">
@@ -48,7 +36,7 @@ function App() {
           </Route>
 
           <Route path="/">
-            <Main guild={selectedGuild} />
+            <Main />
           </Route>
         </Switch>
       </div>
