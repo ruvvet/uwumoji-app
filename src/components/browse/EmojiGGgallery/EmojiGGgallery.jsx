@@ -56,7 +56,7 @@ export default function EmojiGGgallery() {
 
   const renderGallery = () => {
     // TODO: loading/spinner
-    console.log(leftNav, rightNav);
+
     return (
       <div>
         <EmojiGallery galleryName="Emoji.gg" emojis={emojiPage} />

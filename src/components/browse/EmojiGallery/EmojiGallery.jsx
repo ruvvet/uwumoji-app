@@ -3,7 +3,7 @@ import Emoji from '../../shared/Emoji';
 import './emojigallery.css';
 
 export default function EmojiGallery({ galleryName, emojis }) {
-  console.log(galleryName);
+
   const renderEmojis = () => {
     if (!emojis) {
       return null;

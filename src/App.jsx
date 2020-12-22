@@ -22,12 +22,12 @@ function App() {
   };
 
 
-  
+
 
   return (
     <div className="App">
-      <div className="layout-header"> uwumoji</div>
-      <div className="layout-panel">credits</div>
+      <div className="layout-header"> uwumoji </div>
+      <div className="layout-panel"> credits </div>
       <div className="search"></div>
 
       <div className="profile">

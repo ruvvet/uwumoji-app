@@ -13,6 +13,10 @@ export default function Callback() {
     // get the code from the url query
     const searchParams = new URLSearchParams(location.search);
     const code = searchParams.get('code');
+    const guild = searchParams.get('guild_id');
+
+    localStorage.setItem('SELECTED_GUILD', guild);
+
 
     // if a code is returned
     if (code) {
@@ -20,12 +24,13 @@ export default function Callback() {
       const login = async () => {
         const response = await uwuRequest('/exchange', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ code }),
         });
 
         // Save code to local storage
         localStorage.setItem('UWU_TOKEN', response.access_token);
+
       };
 
       login();

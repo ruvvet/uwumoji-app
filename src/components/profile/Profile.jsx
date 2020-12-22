@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import uwuRequest from '../../utils';
+import LoadingSpinner from '../shared/LoadingSpinner';
 import './profile.css';
 
 export default function Profile() {
@@ -21,11 +22,11 @@ export default function Profile() {
         return null;
       });
 
-      setLoading(false);
-
       if (response) {
         setProfile(response);
       }
+
+      setLoading(false);
     };
 
     getProfile();
@@ -33,14 +34,12 @@ export default function Profile() {
 
   // user pfp = avatars/user_id/user_avatar.png **
 
-    const renderProfile = () => {
+  const renderProfile = () => {
     if (loading) {
       return null;
     }
     if (error) {
-      return <div> Error</div>;
-      //TODO:
-      //return a funny image
+      return <LoadingSpinner />;
     }
 
     return (
